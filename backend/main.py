@@ -6,12 +6,9 @@ from fastapi.middleware.cors import CORSMiddleware
 import re
 
 
-
-
 app = FastAPI()
 
-
-
+OPENROUTER_API_KEY = "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"
 
 app.add_middleware(
     CORSMiddleware,
@@ -31,7 +28,7 @@ async def analyze(request: AnalyzeRequest):
 
     Analyze the following webpage content and respond **strictly** in this format:
 
-    Summary: <A concise summary of the page content in no more than 50 words>
+    Summary: <A concise summary of the page content in no more than 500 words with a focus on the main points with the proper context and details.>
 
     Type: <The type of page, e.g., E-commerce, Service, Blog, News, Educational, etc.>
 
@@ -40,7 +37,7 @@ async def analyze(request: AnalyzeRequest):
     """
 
     headers = {
-        "Authorization": f"Bearer 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",
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
         "HTTP-Referer": "http://localhost", 
         "X-Title": "Veritas-AI-Chrome-Extension"

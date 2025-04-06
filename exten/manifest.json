@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Slide-in Sidebar",
+  "version": "1.0",
+  "description": "A sidebar that slides in when the extension is clicked.",
+  "action": {
+    "default_icon": "icon/ford.jpeg"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
